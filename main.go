@@ -2,18 +2,28 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
+func TestDisplay(varJmsServerURL string, varJMSToken string, varBatch string, varAssetNote string, varAssetNodeDisplay string) {
+	fmt.Printf("JmsServerURL : %s\n", varJmsServerURL)
+	fmt.Printf("JMSToken : %s\n", varJMSToken)
+	fmt.Printf("Batch : %s\n", varBatch)
+	fmt.Printf("AssetNote : %s\n", varAssetNote)
+	fmt.Printf("AssetNodeDisplay : %s\n", varAssetNodeDisplay)
+}
+
 func main() {
 	varJmsServerURL := os.Getenv("JmsServerURL")
-	fmt.Printf("JmsServerURL : %s\n", varJmsServerURL)
 	varJMSToken := os.Getenv("JMSToken")
-	fmt.Printf("JMSToken : %s\n", varJMSToken)
-	varBatch := os.Getenv("JmsServerURL")
-	fmt.Printf("Batch : %s\n", varBatch)
+	varBatch := os.Getenv("Batch")
 	varAssetNote := os.Getenv("AssetNote")
-	fmt.Printf("AssetNote : %s\n", varAssetNote)
 	varAssetNodeDisplay := os.Getenv("AssetNodeDisplay")
-	fmt.Printf("AssetNodeDisplay : %s\n", varAssetNodeDisplay)
+
+	if varJmsServerURL == "" || varJMSToken == "" || varBatch == "" || varAssetNote == "" || varAssetNodeDisplay == "" {
+		log.Fatalf("值不能为空")
+	}
+
+	TestDisplay(varJmsServerURL, varJMSToken, varBatch, varAssetNote, varAssetNodeDisplay)
 }
