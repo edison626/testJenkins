@@ -26,4 +26,5 @@ func main() {
 	}
 
 	TestDisplay(varJmsServerURL, varJMSToken, varBatch, varAssetNote, varAssetNodeDisplay)
+	fmt.Printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 }
